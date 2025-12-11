@@ -711,6 +711,22 @@ export default function FareTrends() {
             </button>
           )}
         </div>
+        <div className="hstack" style={{ marginTop: 8, gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+          <button className="btn" type="button" onClick={() => setDrawerOpen(true)} title="More filters">More filters</button>
+          {tags && tags.length > 0 && (
+            <>
+              <div className="filter-tags">
+                {tags.map((t) => (
+                  <span key={t.id} className="tag">
+                    {t.label}
+                    <button className="tag-remove" onClick={() => handleRemoveTag(t.id)} aria-label={`Remove ${t.label}`}>×</button>
+                  </span>
+                ))}
+              </div>
+              <button className="btn" type="button" onClick={handleReset} title="Clear filters">Clear</button>
+            </>
+          )}
+        </div>
         {loading && (
           <div style={{ marginBottom: 12 }}>
             <LoadingBanner message={loadingMsg} subtext={loadingSub} />

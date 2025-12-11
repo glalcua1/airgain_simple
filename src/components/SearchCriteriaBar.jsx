@@ -343,25 +343,9 @@ export default function SearchCriteriaBar({
               Refreshing…
             </span>
           )}
-          <button className="btn" type="button" onClick={onOpenFilters} title="More filters">
-            More filters
-          </button>
           <button className="btn" type="button" title="Save Market">Save Market</button>
         </div>
       </div>
-      {filterTags && filterTags.length > 0 && (
-        <div className="hstack" style={{ marginTop: 8, gap: 10, alignItems: 'center' }}>
-          <div className="filter-tags">
-            {filterTags.map((t) => (
-              <span key={t.id} className="tag">
-                {t.label}
-                <button className="tag-remove" onClick={() => onRemoveFilterTag?.(t.id)} aria-label={`Remove ${t.label}`}>×</button>
-              </span>
-            ))}
-          </div>
-          <button className="btn" type="button" onClick={onResetFilters} title="Clear filters">Clear</button>
-        </div>
-      )}
     </div>
   );
 }
